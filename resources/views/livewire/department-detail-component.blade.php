@@ -11,6 +11,11 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">{{$department->name}}</h4>
+            <div class="row">
+                <div class="col-md12 col-sm-12 col-xs-12" style="float: right;">
+                    <a href="{{route('admin.departments')}}" class="btn btn-default btn-sm pull-right table-button">Tất cả phòng/ban</a>
+                </div>
+            </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">

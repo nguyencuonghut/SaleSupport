@@ -21,7 +21,7 @@ class DepartmentDetailComponent extends Component
     public function render()
     {
         $department = Department::findOrFail($this->department_id);
-        $users = User::where('department_id', $department->id)->paginate(2);
+        $users = User::where('department_id', $department->id)->paginate(10);
         return view('livewire.department-detail-component', ['department' => $department, 'users' => $users])->layout('layouts.base');
     }
 }

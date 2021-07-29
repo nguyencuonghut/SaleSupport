@@ -26,6 +26,9 @@
                     Tên
                   </th>
                   <th>
+                    Số nhân viên
+                  </th>
+                  <th>
                     Ngày tạo
                   </th>
                 </thead>
@@ -35,6 +38,7 @@
                         <td>{{ $item->id }}</td>
                         <td><a style="color: #212529 !important" href={{route('admin.show.department', $item->id)}}>{{ $item->code }}</a></td>
                         <td><a style="color: #212529 !important" href={{route('admin.show.department', $item->id)}}>{{ $item->name }}</a></td>
+                        <td>{{$item->users->count()}}</td>
                         <td>{{ $item->created_at }}</td>
                     </tr>
                     @endforeach
