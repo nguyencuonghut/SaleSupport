@@ -33,8 +33,8 @@
                     @foreach ($departments as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->code }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td><a style="color: #212529 !important" href={{route('admin.show.department', $item->id)}}>{{ $item->code }}</a></td>
+                        <td><a style="color: #212529 !important" href={{route('admin.show.department', $item->id)}}>{{ $item->name }}</a></td>
                         <td>{{ $item->created_at }}</td>
                     </tr>
                     @endforeach
