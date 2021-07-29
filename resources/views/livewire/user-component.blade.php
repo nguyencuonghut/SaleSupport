@@ -41,7 +41,7 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->department->name }}</td>
+                        <td><a style="color: #212529 !important" href={{route('admin.show.department', $item->department->id)}}>{{ $item->department->name }}</a></td>
                         <td>{{ $item->type }}</td>
                         <td>{{ $item->created_at }}</td>
                     </tr>
