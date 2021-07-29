@@ -26,7 +26,7 @@
                     Tên
                   </th>
                   <th>
-                    Số nhân viên
+                    Số lượng
                   </th>
                   <th>
                     Ngày tạo
