@@ -61,13 +61,13 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ (request()->routeIs('admin.departments')) ? 'active' : '' }}">
+          <li class="{{ (request()->is('departments*')) ? 'active' : '' }}">
             <a href="/departments">
               <i class="now-ui-icons business_bank"></i>
               <p>Phòng ban</p>
             </a>
           </li>
-          <li class="{{ (request()->routeIs('admin.users')) ? 'active' : '' }}">
+          <li class="{{ (request()->is('users*')) ? 'active' : '' }}">
             <a href="/users">
               <i class="now-ui-icons users_single-02"></i>
               <p>Người dùng</p>
