@@ -26,6 +26,9 @@
                     Email
                   </th>
                   <th>
+                    Phòng/ban
+                  </th>
+                  <th>
                     Quyền
                   </th>
                   <th>
@@ -38,6 +41,7 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
+                        <td>{{ $item->department->name }}</td>
                         <td>{{ $item->type }}</td>
                         <td>{{ $item->created_at }}</td>
                     </tr>

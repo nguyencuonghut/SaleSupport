@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
                     'email' => 'nguyenvancuong@honghafeed.com.vn',
                     'password' => bcrypt('Hongha@123'),
                     'type' => 'ADMIN',
+                    'department_id' => 4,
                     'email_verified_at' => null,
                     'remember_token' => null,
                     'created_at' => Carbon::now(),
