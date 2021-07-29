@@ -32,6 +32,7 @@
   <!-- CSS Files -->
   <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
   <link href="{{asset('assets/css/now-ui-dashboard.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
   @livewireStyles()
@@ -54,14 +55,20 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
-            <a href="./dashboard.html">
+          <li class="{{ (request()->routeIs('home')) ? 'active' : '' }}">
+            <a href="/">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="./user.html">
+          <li class="{{ (request()->routeIs('admin.departments')) ? 'active' : '' }}">
+            <a href="/departments">
+              <i class="now-ui-icons business_bank"></i>
+              <p>Phòng ban</p>
+            </a>
+          </li>
+          <li class="{{ (request()->routeIs('admin.users')) ? 'active' : '' }}">
+            <a href="/users">
               <i class="now-ui-icons users_single-02"></i>
               <p>Người dùng</p>
             </a>

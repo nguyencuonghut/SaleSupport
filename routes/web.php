@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Livewire\DashboardComponent;
+use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\UserComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeComponent::class);
-Route::get('/dashboard', DashboardComponent::class);
+Route::get('/', HomeComponent::class)->name('home');;
+Route::get('/departments', DepartmentComponent::class)->name('admin.departments');
+Route::get('/users', UserComponent::class)->name('admin.users');
