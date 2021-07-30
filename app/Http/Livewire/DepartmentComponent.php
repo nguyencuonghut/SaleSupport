@@ -16,6 +16,7 @@ class DepartmentComponent extends Component
     public function render()
     {
         $departments = Department::where('id', 'like', '%'.$this->search.'%')
+                                ->orWhere('code', 'like', '%'.$this->search.'%')
                                 ->orWhere('name', 'like', '%'.$this->search.'%')
                                 ->orderBy('id', 'desc')
                                 ->get();

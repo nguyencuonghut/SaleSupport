@@ -32,12 +32,6 @@
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -69,6 +63,33 @@
                       @endforeach
                     </tbody>
                   </table>
+                  <!-- Paginate -->
+              <div class="card-footer clearfix">
+                @if ($users->lastPage() > 1)
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" wire:click="gotoPage(1)">Đầu</a></li>
+                  @for ($i = 1; $i <= $users->lastPage(); $i++)
+                    <?php
+                    $half_total_links = floor(5 / 2);
+                    $from = $users->currentPage() - $half_total_links;
+                    $to = $users->currentPage() + $half_total_links;
+                    if ($users->currentPage() < $half_total_links) {
+                      $to += $half_total_links - $users->currentPage();
+                    }
+                    if ($users->lastPage() - $users->currentPage() < $half_total_links) {
+                      $from -= $half_total_links - ($users->lastPage() - $users->currentPage()) - 1;
+                    }
+                    ?>
+
+                    @if ($from < $i && $i < $to)
+                      <li class="page-item"><a class="page-link {{ ($users->currentPage() == $i) ? "current" : "" }}" wire:click="gotoPage('{{ $i }}')" >{{ $i }}</a></li>
+                    @endif
+                    @endfor
+                  <li class="page-item"><a class="page-link" wire:click="gotoPage('{{ $users->lastPage() }}')">Cuối</a></li>
+                </ul>
+                @endif
+              </div>
+              <!-- /.Paginate -->
               </div>
               <!-- /.card-body -->
             </div>
