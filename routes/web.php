@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeComponent::class)->name('home');;
-Route::get('/departments', DepartmentComponent::class)->name('admin.departments');
-Route::get('/departments/show/{department_id}', DepartmentDetailComponent::class)->name('admin.show.department');
-Route::get('/users', UserComponent::class)->name('admin.users');
+Route::get('admin/departments', DepartmentComponent::class)->name('admin.departments');
+Route::get('admin/departments/show/{department_id}', DepartmentDetailComponent::class)->name('admin.show.department');
+Route::get('admin/users', UserComponent::class)->name('admin.users');

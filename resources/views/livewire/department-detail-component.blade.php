@@ -1,84 +1,86 @@
 @section('title')
-    Chi tiết phòng/ban
+    Chi tiết phòng Ban
 @endsection
 
-@section('brand')
-    Chi tiết phòng ban
-@endsection
-<div class="content">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">{{$department->name}}</h4>
-            <div class="row">
-                <div class="col-md12 col-sm-12 col-xs-12" style="float: right;">
-                    <a href="{{route('admin.departments')}}" class="btn btn-default btn-sm pull-right table-button">Tất cả phòng/ban</a>
-                </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                  <th>
-                    Id
-                  </th>
-                  <th>
-                    Tên
-                  </th>
-                  <th>
-                    Email
-                  </th>
-                  <th>
-                    Quyền
-                  </th>
-                  <th>
-                    Ngày tạo
-                  </th>
-                </thead>
-                <tbody>
-                    @foreach ($users as $item)
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->type }}</td>
-                        <td>{{ $item->created_at }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-              </table>
-              <!-- Pagination -->
-              <div class="wrap-pagination-info">
-                @if ($users->lastPage() > 1)
-                    <ul class="page-numbers">
-                        <li><a class="page-number-item" wire:click="gotoPage(1)">Đầu</a></li>
-
-                        @for ($i = 1; $i <= $users->lastPage(); $i++)
-                            <?php
-                            $half_total_links = floor(5 / 2);
-                            $from = $users->currentPage() - $half_total_links;
-                            $to = $users->currentPage() + $half_total_links;
-                            if ($users->currentPage() < $half_total_links) {
-                                $to += $half_total_links - $users->currentPage();
-                            }
-                            if ($users->lastPage() - $users->currentPage() < $half_total_links) {
-                                $from -= $half_total_links - ($users->lastPage() - $users->currentPage()) - 1;
-                            }
-                            ?>
-
-                            @if ($from < $i && $i < $to)
-                                <li><a class="page-number-item {{ ($users->currentPage() == $i) ? "current" : "" }}" wire:click="gotoPage('{{ $i }}')" >{{ $i }}</a></li>
-                            @endif
-                        @endfor
-                        <li><a class="page-number-item" wire:click="gotoPage('{{ $users->lastPage() }}')">Cuối</a></li>
-                    </ul>
-                @endif
-            </div>
-            </div>
+<div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <ol class="breadcrumb float-sm-left">
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Trang chủ</a></li>
+              <li class="breadcrumb-item"><a href="{{route('admin.departments')}}">Phòng ban</a></li>
+              <li class="breadcrumb-item active">{{$department->name}}</li>
+            </ol>
           </div>
         </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{$department->name}}</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Quyền</th>
+                        <th>Thao tác</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($users as $item)
+                          <tr>
+                              <td>{{$item->id}}</td>
+                              <td>{{$item->name}}</td>
+                              <td>{{$item->email}}</td>
+                              <td>{{$item->type}}</td>
+                              <td>
+                                  <a href="#"><i class="fa fa-eye"></i></a>
+                                  <a href="#"><i class="fa fa-edit"></i></a>
+                                  <a href="#"><i class="fa fa-trash"></i></a>
+                              </td>
+                          </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </div>
-    </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
+</div>

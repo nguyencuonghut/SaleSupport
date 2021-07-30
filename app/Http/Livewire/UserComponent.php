@@ -12,7 +12,7 @@ class UserComponent extends Component
 
     public function render()
     {
-        $users = User::orderBy('id', 'desc')->paginate(20);
+        $users = User::orderBy('id', 'desc')->paginate(10);
         return view('livewire.user-component', ['users' => $users])->layout('layouts.base');
     }
 }
