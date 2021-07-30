@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="card-tools">
-                            <input type="text" name="table_search" class="form-control" placeholder="Search">
+                            <input type="text" name="table_search" class="form-control" placeholder="Search" wire:model="search">
                         </div>
                     </div>
                 </div>
