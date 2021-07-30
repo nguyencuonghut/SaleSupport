@@ -12,7 +12,7 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Phòng/ban</li>
+              <li class="breadcrumb-item active">Phòng ban</li>
             </ol>
           </div>
         </div>
@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Tất cả phòng/ban</h3>
+                <h3 class="card-title">Tất cả phòng ban</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">

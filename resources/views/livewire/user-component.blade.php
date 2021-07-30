@@ -50,7 +50,7 @@
                       <th>Tên</th>
                       <th>Email</th>
                       <th>Quyền</th>
-                      <th>Phòng/ban</th>
+                      <th>Phòng ban</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>

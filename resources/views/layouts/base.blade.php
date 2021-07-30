@@ -154,7 +154,7 @@
              <a href="{{ route('admin.departments') }}" class="nav-link {{ Request::is('admin/departments*') ? 'active' : '' }}">
                <i class="nav-icon fas fa-university"></i>
                <p>
-                 Phòng/ban
+                 Phòng ban
                </p>
              </a>
            </li>
