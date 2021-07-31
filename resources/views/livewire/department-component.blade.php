@@ -39,9 +39,27 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Mã</th>
-                      <th>Tên</th>
+                      <th><a wire:click.prevent="sortBy('id')" role="button" href="#" style="color:#212529">ID</a>
+                        @if($sortField == 'id')
+                          <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'id' ? '' : 'color:#cccccc'}} "></i>
+                        @else
+                          <i class="fa fa-sort" style="color:#cccccc"></i>
+                        @endif
+                      </th>
+                      <th><a wire:click.prevent="sortBy('code')" role="button" href="#" style="color:#212529">Mã</a>
+                        @if($sortField == 'code')
+                          <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'code' ? '' : 'color:#cccccc'}} "></i>
+                        @else
+                          <i class="fa fa-sort" style="color:#cccccc"></i>
+                        @endif
+                      </th>
+                      <th><a wire:click.prevent="sortBy('name')" role="button" href="#" style="color:#212529">Tên</a>
+                        @if($sortField == 'name')
+                          <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'name' ? '' : 'color:#cccccc'}} "></i>
+                        @else
+                          <i class="fa fa-sort" style="color:#cccccc"></i>
+                        @endif
+                      </th>
                       <th>Số lượng</th>
                       <th>Thao tác</th>
                     </tr>
