@@ -76,7 +76,12 @@
 
               <!-- Paginate -->
               <div class="card-footer clearfix">
-                @if ($users->lastPage() > 1)
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <p>Hiển thị {{$users->count()}} dòng trong tổng số {{$users->total()}} dòng</p>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        @if ($users->lastPage() > 1)
                 <ul class="pagination pagination-sm m-0 float-right">
                   <li class="page-item"><a class="page-link" wire:click="gotoPage(1)">Đầu</a></li>
                   @for ($i = 1; $i <= $users->lastPage(); $i++)
@@ -99,6 +104,8 @@
                   <li class="page-item"><a class="page-link" wire:click="gotoPage('{{ $users->lastPage() }}')">Cuối</a></li>
                 </ul>
                 @endif
+                    </div>
+                  </div>
               </div>
               <!-- /.Paginate -->
             </div>
