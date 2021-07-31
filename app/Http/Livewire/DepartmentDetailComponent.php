@@ -25,8 +25,6 @@ class DepartmentDetailComponent extends Component
         $department = Department::findOrFail($this->department_id);
         $users = User::where('department_id', $department->id)
                     ->where('name', 'like', '%'.$this->search.'%')
-                    ->orWhere('email', 'like', '%'.$this->search.'%')
-                    ->orWhere('type', 'like', '%'.$this->search.'%')
                     ->paginate(10);
         return view('livewire.department-detail-component', ['department' => $department, 'users' => $users])->layout('layouts.base');
     }
