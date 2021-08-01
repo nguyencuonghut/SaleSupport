@@ -24,6 +24,18 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            <!-- Display session message -->
+            @if(Session::has('success_message'))
+            <div class="alert alert-success">
+              {{ Session::get('success_message') }}
+            </div>
+          @endif
+          @if(Session::has('error_message'))
+            <div class="alert alert-danger">
+              {{ Session::get('error_message') }}
+            </div>
+          @endif
+
             <div class="card">
               <div class="card-header">
                 <div class="row">
@@ -100,7 +112,7 @@
                             <td>
                                 <a href="#"><i class="fa fa-eye"></i></a>
                                 <a href="#"><i class="fa fa-edit"></i></a>
-                                <a href="#"><i class="fa fa-trash"></i></a>
+                                <a href="#" wire:click.prevent="deleteUser({{$item->id}})"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
