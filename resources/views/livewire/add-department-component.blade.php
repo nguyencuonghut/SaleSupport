@@ -51,18 +51,27 @@
                           <div class="form-group">
                             <label class="col-form-label" for="code">Mã<span> *</span></label>
                             <input type="text" class="form-control" id="code" name="code" wire:model="code">
+                            @error('code')
+                              <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                           </div>
                         </div>
                         <div class="col-6">
                           <div class="form-group">
                             <label class="col-form-label" for="name">Tên<span> *</span></label>
                              <input type="text" class="form-control" id="name" name="name" wire:model="name">
+                             @error('name')
+                              <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label" for="description">Mô tả</label>
                         <input type="text" class="form-control" id="description" name="description" wire:model="description">
+                        @error('description')
+                          <span class="text-danger"> {{ $message }}</span>
+                        @enderror
                       </div>
                   </div>
                   <div class="card-footer">

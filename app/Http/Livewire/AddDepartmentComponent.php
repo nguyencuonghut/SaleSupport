@@ -16,15 +16,16 @@ class AddDepartmentComponent extends Component
     public function addDepartment()
     {
         $rules = [
-            'code'              => 'required|max:255',
+            'code'              => 'required|unique:departments|max:255',
             'name'              => 'required',
             'description'        => 'max:255',
         ];
         $messages = [
             'code.required' => 'Bạn phải nhập mã.',
+            'code.unique' => 'Mã đã tồn tại. Bạn hãy chọn mã khác.',
             'code.max' => 'Mã dài quá 255 ký tự.',
-            'code.required' => 'Bạn phải nhập tên.',
-            'code.max' => 'Tên dài quá 255 ký tự.',
+            'name.required' => 'Bạn phải nhập tên.',
+            'name.max' => 'Tên dài quá 255 ký tự.',
             'desciption.max' => 'Mô tả dài quá 255 ký tự.',
         ];
         $this->validate($rules,$messages);
