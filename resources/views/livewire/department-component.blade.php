@@ -88,7 +88,7 @@
                             <td>{{$item->users->count()}}</td>
                             <td>
                                 <a href="{{route('admin.show.department', $item->id)}}"><i class="fa fa-eye"></i></a>
-                                <a href="#"><i class="fa fa-edit"></i></a>
+                                <a href="{{route('admin.edit.department', $item->id)}}"><i class="fa fa-edit"></i></a>
                                 <a href="#" wire:click.prevent="deleteDepartment({{$item->id}})"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
