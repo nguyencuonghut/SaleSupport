@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Department;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class DepartmentComponent extends Component
 {
@@ -28,6 +29,22 @@ class DepartmentComponent extends Component
         }
 
         $this->sortField = $field;
+    }
+
+
+    public function deleteDepartment($id)
+    {
+        $department = Department::findOrFail($id);
+        if(!$department->users->count()) {
+            //Delete this department
+            $department->delete();
+            Session::flash('success_message', 'Xóa phòng ban thành công!');
+            return redirect()->route('admin.departments');
+        } else {
+            Session::flash('error_message', 'Đang tồn tại nhân viên trong phòng ban này. Không thể xóa!');
+            return redirect()->route('admin.departments');
+        }
+
     }
 
     public function render()
