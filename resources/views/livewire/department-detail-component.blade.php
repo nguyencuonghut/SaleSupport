@@ -85,7 +85,7 @@
                               <td>
                                   <a href="#"><i class="fa fa-eye"></i></a>
                                   <a href="#"><i class="fa fa-edit"></i></a>
-                                  <a href="#"><i class="fa fa-trash"></i></a>
+                                  <a href="#" wire:click.prevent="deleteUser({{$item->id}})"><i class="fa fa-trash"></i></a>
                               </td>
                           </tr>
                       @endforeach

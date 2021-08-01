@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Department;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -33,6 +34,15 @@ class DepartmentDetailComponent extends Component
         }
 
         $this->sortField = $field;
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        //TODO: need to check auth user before deleting
+        $user->delete();
+        Session::flash('success_message', 'Xóa người dùng thành công!');
+        return redirect()->route('admin.users');
     }
 
     public function render()
