@@ -11,10 +11,25 @@ class UserComponent extends Component
     use WithPagination;
 
     public $search;
+    public $sortField;
+    public $sortAsc;
 
     public function mount()
     {
         $this->search = '';
+        $this->sortField = 'id';
+        $this->sortAsc = false;
+    }
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = ! $this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+
+        $this->sortField = $field;
     }
 
     public function render()
@@ -28,8 +43,8 @@ class UserComponent extends Component
                         $q->where('name', 'like', '%'.$this->search.'%');
 
                     })
-                    ->orderBy('id', 'desc')
-                    ->orderBy('id', 'desc')->paginate(10);
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate(10);
         return view('livewire.user-component', ['users' => $users])->layout('layouts.base');
     }
 }
