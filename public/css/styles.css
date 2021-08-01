@@ -58,3 +58,6 @@
     margin: 0;
     margin-top: -2px;
 }
+.col-6 label span{
+    color: #ff2832;
+}

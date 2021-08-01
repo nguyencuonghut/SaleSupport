@@ -40,8 +40,12 @@
                 <h3 class="card-title">Tất cả phòng ban</h3>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
+
+                    <div class="input-group-append">
+                        <a href="{{ route('admin.add.department') }}" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
