@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\AddDepartmentComponent;
+use App\Http\Livewire\AddUserComponent;
 use App\Http\Livewire\DashboardComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\DepartmentDetailComponent;
@@ -26,3 +27,4 @@ Route::get('admin/departments/show/{department_id}', DepartmentDetailComponent::
 Route::get('admin/departments/add', AddDepartmentComponent::class)->name('admin.add.department');
 Route::get('admin/departments/edit/{department_id}', EditDepartmentComponent::class)->name('admin.edit.department');
 Route::get('admin/users', UserComponent::class)->name('admin.users');
+Route::get('admin/users/add', AddUserComponent::class)->name('admin.add.user');

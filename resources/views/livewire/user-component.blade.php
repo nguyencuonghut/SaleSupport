@@ -47,8 +47,14 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card-tools">
-                            <input type="text" name="table_search" class="form-control" placeholder="Search" wire:model="search">
+                        <div class="card-tools" style="margin: 5px;">
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
+
+                                <div class="input-group-append">
+                                  <a href="{{ route('admin.add.user') }}" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                </div>
+                              </div>
                         </div>
                     </div>
                 </div>

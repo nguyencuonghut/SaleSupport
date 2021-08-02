@@ -18,7 +18,7 @@
   <!-- Custome style -->
   <link rel="stylesheet" href="{{asset('css/styles.css')}}">
   @livewireStyles()
-  @method('styles')
+  @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -197,6 +197,8 @@
 <!-- Page specific script -->
 
 @livewireScripts()
-@method('scripts')
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+
+@stack('scripts')
 </body>
 </html>
