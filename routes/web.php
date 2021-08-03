@@ -6,6 +6,7 @@ use App\Http\Livewire\DashboardComponent;
 use App\Http\Livewire\DepartmentComponent;
 use App\Http\Livewire\DepartmentDetailComponent;
 use App\Http\Livewire\EditDepartmentComponent;
+use App\Http\Livewire\EditUserComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\UserComponent;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,4 @@ Route::get('admin/departments/add', AddDepartmentComponent::class)->name('admin.
 Route::get('admin/departments/edit/{department_id}', EditDepartmentComponent::class)->name('admin.edit.department');
 Route::get('admin/users', UserComponent::class)->name('admin.users');
 Route::get('admin/users/add', AddUserComponent::class)->name('admin.add.user');
+Route::get('admin/users/edit/{user_id}', EditUserComponent::class)->name('admin.edit.user');
