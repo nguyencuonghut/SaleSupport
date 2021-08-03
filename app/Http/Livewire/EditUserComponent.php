@@ -31,7 +31,7 @@ class EditUserComponent extends Component
     {
         $rules = [
             'name'                  => 'required',
-            'email'                 => 'required|email|unique:users|max:255',
+            'email'                 => 'required|email|max:255',
             'department_id'         => 'required',
             'type'                  => 'required',
         ];
