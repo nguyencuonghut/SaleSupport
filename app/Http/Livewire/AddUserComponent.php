@@ -46,7 +46,7 @@ class AddUserComponent extends Component
         $user = new User();
         $user->name = $this->name;
         $user->email = $this->email;
-        $user->password = Hash::make($this->department_id);
+        $user->password = Hash::make($this->password);
         $user->department_id = $this->department_id;
         $user->type = $this->type;
         $user->save();
