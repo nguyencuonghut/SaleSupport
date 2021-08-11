@@ -39,14 +39,13 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="btn-group" role="group" aria-label="Basic example" style="text-align:center">
                             <button type="button" class="btn btn-secondary" wire:click="exportExcel('xlsx')" wire:loading.attr="disable">Excel</button>
                             <button type="button" class="btn btn-secondary" wire:click="exportPdf('pdf')" wire:loading.attr="disable">Pdf</button>
-                            <button type="button" class="btn btn-secondary">Print</button>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="card-tools" style="margin: 5px;">
                             <div class="input-group input-group-sm">
                                 <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
