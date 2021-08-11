@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\UsersExport;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserComponent extends Component
 {
@@ -41,6 +43,17 @@ class UserComponent extends Component
         $user->delete();
         Session::flash('success_message', 'Xóa người dùng thành công!');
         return redirect()->route('admin.users');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+
+    }
+
+    public function exportPdf()
+    {
+        return Excel::download(new UsersExport, 'users.pdf');
     }
 
     public function render()

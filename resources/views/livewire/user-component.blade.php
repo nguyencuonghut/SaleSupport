@@ -41,8 +41,8 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="btn-group" role="group" aria-label="Basic example" style="text-align:center">
-                            <button type="button" class="btn btn-secondary">Excel</button>
-                            <button type="button" class="btn btn-secondary">Pdf</button>
+                            <button type="button" class="btn btn-secondary" wire:click="exportExcel('xlsx')" wire:loading.attr="disable">Excel</button>
+                            <button type="button" class="btn btn-secondary" wire:click="exportPdf('pdf')" wire:loading.attr="disable">Pdf</button>
                             <button type="button" class="btn btn-secondary">Print</button>
                         </div>
                     </div>
