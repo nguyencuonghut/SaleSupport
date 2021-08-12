@@ -51,7 +51,7 @@
                                 <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
 
                                 <div class="input-group-append">
-                                  <a href="#" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                  <a href="{{route('admin.add.product')}}" class="btn btn-success"><i class="fas fa-plus"></i></a>
                                 </div>
                               </div>
                         </div>
