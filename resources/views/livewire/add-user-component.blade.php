@@ -114,8 +114,9 @@
                                   <div wire:ignore>
                                     <label class="col-form-label" for="type">Quyền<span> *</span></label>
                                     <select class="form-control select2" style="width: 100%;" name="type" id="type" wire:model="type">
-                                      <option value='USER'>USER</option>
-                                      <option value='ADMIN'>ADMIN</option>
+                                      <option value='Khách hàng'>Khách hàng</option>
+                                      <option value='Nhân viên'>Nhân viên</option>
+                                      <option value='Admin'>Admin</option>
                                     </select>
                                     @error('department_id')
                                       <span class="text-danger"> {{ $message }}</span>

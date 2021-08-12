@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Tony Nguyen',
                     'email' => 'nguyenvancuong@honghafeed.com.vn',
                     'password' => bcrypt('Hongha@123'),
-                    'type' => 'ADMIN',
+                    'type' => 'Admin',
                     'department_id' => 4,
                     'email_verified_at' => null,
                     'remember_token' => null,
