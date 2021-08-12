@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\ProductsExport;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductComponent extends Component
 {
@@ -41,6 +43,17 @@ class ProductComponent extends Component
         $product->delete();
         Session::flash('success_message', 'Xóa sản phẩm thành công!');
         return redirect()->route('admin.products');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+
+    }
+
+    public function exportPdf()
+    {
+        return Excel::download(new ProductsExport, 'products.pdf');
     }
 
     public function render()
