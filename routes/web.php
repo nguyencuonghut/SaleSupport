@@ -12,6 +12,7 @@ use App\Http\Livewire\ResetPasswordComponent;
 use App\Http\Livewire\UserComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Livewire\ProductComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,5 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('admin/users/add', AddUserComponent::class)->name('admin.add.user');
     Route::get('admin/users/edit/{user_id}', EditUserComponent::class)->name('admin.edit.user');
     Route::get('admin/users/resetpassword/{user_id}', ResetPasswordComponent::class)->name('admin.resetpassword');
+    Route::get('admin/products', ProductComponent::class)->name('admin.products');
 });

@@ -141,6 +141,14 @@
 
            <li class="nav-header">HỆ THỐNG</li>
            <li class="nav-item">
+             <a href="{{ route('admin.products') }}" class="nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
+               <i class="nav-icon fas fa-cubes"></i>
+               <p>
+                 Sản phẩm
+               </p>
+             </a>
+           </li>
+           <li class="nav-item">
              <a href="{{ route('admin.departments') }}" class="nav-link {{ Request::is('admin/departments*') ? 'active' : '' }}">
                <i class="nav-icon fas fa-university"></i>
                <p>
