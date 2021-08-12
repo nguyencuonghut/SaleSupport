@@ -13,6 +13,7 @@ use App\Http\Livewire\UserComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\AddProductComponent;
+use App\Http\Livewire\EditProductComponent;
 use App\Http\Livewire\ProductComponent;
 
 /*
@@ -42,5 +43,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('admin/users/resetpassword/{user_id}', ResetPasswordComponent::class)->name('admin.resetpassword');
     Route::get('admin/products', ProductComponent::class)->name('admin.products');
     Route::get('admin/products/add', AddProductComponent::class)->name('admin.add.product');
+    Route::get('admin/products/edit/{product_id}', EditProductComponent::class)->name('admin.edit.product');
 
 });
