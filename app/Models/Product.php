@@ -14,4 +14,8 @@ class Product extends Model
         'name',
         'weight',
     ];
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
+    }
 }

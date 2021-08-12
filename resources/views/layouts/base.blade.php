@@ -149,6 +149,14 @@
              </a>
            </li>
            <li class="nav-item">
+             <a href="{{ route('admin.prices') }}" class="nav-link {{ Request::is('admin/prices*') ? 'active' : '' }}">
+               <i class="nav-icon fas fa-hand-holding-usd"></i>
+               <p>
+                 Bảng giá
+               </p>
+             </a>
+           </li>
+           <li class="nav-item">
              <a href="{{ route('admin.departments') }}" class="nav-link {{ Request::is('admin/departments*') ? 'active' : '' }}">
                <i class="nav-icon fas fa-university"></i>
                <p>
