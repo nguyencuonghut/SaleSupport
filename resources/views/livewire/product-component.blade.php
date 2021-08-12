@@ -98,7 +98,6 @@
                             <td>{{$item->weight}} kg</td>
                             <td>
                                 <a href="{{route('admin.edit.product', $item->id)}}"><i class="fa fa-edit"></i></a>
-                                <a href="#"><i class="fa fa-key"></i></a>
                                 <a href="#" wire:click.prevent="deleteProduct({{$item->id}})"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
