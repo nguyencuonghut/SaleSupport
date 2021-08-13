@@ -94,7 +94,7 @@
                     @foreach ($products as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td><a href="#">{{$item->code}}</a></td>
+                            <td><a href="{{route('admin.show.productprice', $item->id)}}">{{$item->code}}</a></td>
                             <td>{{$item->weight}} kg</td>
                             <td>
                                 <a href="{{route('admin.edit.product', $item->id)}}"><i class="fa fa-edit"></i></a>

@@ -46,7 +46,7 @@ class AddPriceComponent extends Component
         $price->save();
 
         Session::flash('success_message', 'Giá mới được tạo thành công!');
-        return redirect()->route('admin.prices');
+        return redirect()->route('admin.show.productprice', $price->product->id);
     }
 
     public function render()

@@ -1,5 +1,5 @@
 @section('title')
-    Giá sản phẩm
+    Giá theo sản phẩm
 @endsection
 
 <div>
@@ -12,7 +12,8 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Giá sản phẩm</li>
+              <li class="breadcrumb-item"><a href="{{route('admin.products')}}">Sản phẩm </a></li>
+              <li class="breadcrumb-item active">{{$product->code}}</li>
             </ol>
           </div>
         </div>
@@ -26,24 +27,11 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <div class="row">
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="btn-group" role="group" aria-label="Basic example" style="text-align:center">
-                            <button type="button" class="btn btn-secondary" wire:click="exportExcel('xlsx')" wire:loading.attr="disable">Excel</button>
-                            <button type="button" class="btn btn-secondary" wire:click="exportPdf('pdf')" wire:loading.attr="disable">Pdf</button>
+                <h3 class="card-title">Bảng giá {{$product->code}}</h3>
+                <div class="card-tools" style="margin: 5px;">
+                    <div class="input-group input-group-sm">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
                         </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card-tools" style="margin: 5px;">
-                            <div class="input-group input-group-sm">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
-
-                                <div class="input-group-append">
-                                  <a href="{{route('admin.add.price')}}" class="btn btn-success"><i class="fas fa-plus"></i></a>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -55,14 +43,6 @@
                         <a wire:click.prevent="sortBy('id')" role="button" href="#" style="color:#212529">ID</a>
                         @if($sortField == 'id')
                         <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'id' ? '' : 'color:#cccccc'}} "></i>
-                        @else
-                        <i class="fa fa-sort" style="color:#cccccc"></i>
-                        @endif
-                      </th>
-                      <th>
-                        <a wire:click.prevent="sortBy('code')" role="button" href="#" style="color:#212529">Mã sản phẩm</a>
-                        @if($sortField == 'code')
-                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'code' ? '' : 'color:#cccccc'}} "></i>
                         @else
                         <i class="fa fa-sort" style="color:#cccccc"></i>
                         @endif
@@ -106,7 +86,6 @@
                     @foreach ($prices as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td><a href="{{route('admin.show.productprice', $item->product->id)}}">{{$item->product->code}}</a></td>
                             <td>{{number_format($item->discount, 0, '.', ',') }}</td>
                             <td>{{number_format($item->company_price, 0, '.', ',') }}</td>
                             <td>{{number_format($item->warehouse_price, 0, '.', ',') }}</td>

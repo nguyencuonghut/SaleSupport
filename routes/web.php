@@ -17,6 +17,7 @@ use App\Http\Livewire\AddProductComponent;
 use App\Http\Livewire\EditProductComponent;
 use App\Http\Livewire\PriceComponent;
 use App\Http\Livewire\ProductComponent;
+use App\Http\Livewire\ProductPriceComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,9 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('admin/products', ProductComponent::class)->name('admin.products');
     Route::get('admin/products/add', AddProductComponent::class)->name('admin.add.product');
     Route::get('admin/products/edit/{product_id}', EditProductComponent::class)->name('admin.edit.product');
+    Route::get('admin/products/show/{product_id}', ProductPriceComponent::class)->name('admin.show.productprice');
     Route::get('admin/prices', PriceComponent::class)->name('admin.prices');
     Route::get('admin/prices/add', AddPriceComponent::class)->name('admin.add.price');
+
 
 });
