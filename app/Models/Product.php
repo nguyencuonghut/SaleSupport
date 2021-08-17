@@ -18,4 +18,8 @@ class Product extends Model
     {
         return $this->hasMany(Price::class);
     }
+    public function last_price()
+{
+    return $this->hasOne(Price::class)->latest();
+}
 }
