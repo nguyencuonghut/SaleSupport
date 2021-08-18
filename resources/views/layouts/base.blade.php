@@ -115,9 +115,15 @@
              </a>
              <ul class="nav nav-treeview">
                <li class="nav-item">
-                 <a href="{{ route('user.add.order') }}" class="nav-link {{ Request::is('/orders*') ? 'active' : '' }}">
+                 <a href="{{ route('user.add.order') }}" class="nav-link {{ Request::is('orders/add') ? 'active' : '' }}">
                    <i class="far fa-circle nav-icon"></i>
                    <p>Tạo đơn hàng</p>
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a href="{{ route('user.cart') }}" class="nav-link {{ Request::is('cart') ? 'active' : '' }}">
+                   <i class="far fa-circle nav-icon"></i>
+                   <p>Giỏ hàng</p>
                  </a>
                </li>
              </ul>

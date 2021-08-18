@@ -19,6 +19,7 @@ use App\Http\Livewire\PriceComponent;
 use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\ProductPriceComponent;
 use App\Http\Livewire\UserAddOrderComponent;
+use App\Http\Livewire\UserCartComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/orders/add', UserAddOrderComponent::class)->name('user.add.order');
+Route::get('/cart', UserCartComponent::class)->name('user.cart');
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/', HomeComponent::class)->name('home');;

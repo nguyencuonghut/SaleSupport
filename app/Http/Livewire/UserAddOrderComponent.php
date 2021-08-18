@@ -37,13 +37,19 @@ class UserAddOrderComponent extends Component
     public function addToCart($product_id)
     {
         $product = Product::findOrFail($product_id);
-        Cart::add($product->id,
-                 $product->code,
-                 1,
-                 $product->last_price->company_price,
-                 ['warehouse_price' => $product->last_price->warehouse_price,
-                 'ht_warehouse_price' => $product->last_price->warehouse_price
-                 ])->associate('App\Models\Product');
+        Cart::add(
+            ['id' => $product->id,
+            'name' => $product->code,
+            'qty' => 1,
+            'price' => $product->last_price->company_price,
+            'options' => [
+                'warehouse_price' => $product->last_price->warehouse_price,
+                'ht_warehouse_price' => $product->last_price->ht_warehouse_price,
+                'weight' => $product->weight,
+                'discount' => $product->last_price->discount
+                ]
+            ])->associate('App\Models\Product');
+
         $this->emitTo('cart-count-component', 'refreshComponent');
         return redirect()->back();
     }

@@ -12,7 +12,7 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-              <li class="breadcrumb-item"><a href="#">Giỏ hàng</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.cart')}}">Giỏ hàng</a></li>
               <li class="breadcrumb-item active">Đặt hàng</li>
             </ol>
           </div>
@@ -25,6 +25,18 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            <!-- Display session message -->
+            @if(Session::has('success_message'))
+                <div class="alert alert-success">
+                {{ Session::get('success_message') }}
+                </div>
+            @endif
+            @if(Session::has('error_message'))
+                <div class="alert alert-danger">
+                {{ Session::get('error_message') }}
+                </div>
+            @endif
+
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Đặt hàng</h3>
