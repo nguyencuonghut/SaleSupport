@@ -3,6 +3,31 @@
 @endsection
 
 <div>
+
+  <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sửa số bao</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label" for="qty">Số bao<span> *</span></label>
+                        <input type="number" class="form-control" id="qty" name="qty" wire:model="qty">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" wire:click.prevent="update()" class="btn btn-primary" data-dismiss="modal">Cập nhật</button>
+                </div>
+        </div>
+        </div>
+    </div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,6 +37,7 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.add.order')}}">Đặt hàng</a></li>
               <li class="breadcrumb-item active">Giỏ hàng</li>
             </ol>
           </div>
@@ -35,6 +61,9 @@
                 {{ Session::get('error_message') }}
                 </div>
             @endif
+            @error('qty')
+            <span class="text-danger"> {{ $message }}</span>
+            @enderror
 
             @if(Cart::count() > 0)
             <div class="card">
@@ -82,8 +111,8 @@
                             <td>{{$item->qty}}</td>
                             <td>{{number_format($item->qty * $item->options->weight, 0, '.', ',')}} kg</td>
                             <td>
-                                <a href="#"><i class="fa fa-edit"></i></a>
-                                <a href="#" wire:click.prevent="destroy('{{ $item->rowId }}')"><i class="fa fa-trash"></i></a>
+                                <button data-toggle="modal" data-target="#updateModal" wire:click="edit('{{$item->rowId}}')" class="btn btn-warning btn-xs">Sửa</button>
+                                <button class="btn btn-danger btn-xs" wire:click.prevent="destroy('{{ $item->rowId }}')">Xóa</button>
                             </td>
                         </tr>
                     @endforeach

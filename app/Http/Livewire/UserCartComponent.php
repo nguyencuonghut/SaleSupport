@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Session;
 
 class UserCartComponent extends Component
 {
+    public $qty;
+    public $updateMode = false;
+    public $rowId;
+
     public function destroy($rowId)
     {
         Cart::remove($rowId);
@@ -23,6 +27,45 @@ class UserCartComponent extends Component
         return redirect()->route('user.add.order');
     }
 
+    private function resetInputFields(){
+        $this->qty = 0;
+    }
+
+    public function edit($rowId)
+    {
+        $this->updateMode = true;
+        $cart = Cart::get($rowId);
+        $this->qty = $cart->qty;
+        $this->rowId = $rowId;
+    }
+
+    public function cancel()
+    {
+        $this->updateMode = false;
+        $this->resetInputFields();
+    }
+
+    public function update()
+    {
+        $rules = [
+            'qty' => 'required|numeric|min:1',
+        ];
+        $messages = [
+            'qty.required' => 'Bạn phải nhập số bao.',
+            'qty.numeric' => 'Số bao phải là dạng số.',
+            'qty.min' => 'Số bao ít nhất phải bằng 1.',
+        ];
+        $this->validate($rules,$messages);
+
+
+        Cart::update($this->rowId, $this->qty);
+
+        $this->updateMode = false;
+        Session::flash('success_message', 'Cập nhật thành công số bao');
+        $this->emitTo('cart-count-component', 'refreshComponent');
+        $this->resetInputFields();
+    }
+
     public function render()
     {
         $subtotal_company = 0;
@@ -30,6 +73,7 @@ class UserCartComponent extends Component
         $subtotal_ht_warehouse = 0;
         $subtotal_discount = 0;
         $total_weight = 0;
+
         foreach(Cart::content() as $item) {
             $subtotal_company += $item->qty * $item->options->weight * $item->price;
             $subtotal_warehouse += $item->qty * $item->options->weight * $item->options->warehouse_price;
