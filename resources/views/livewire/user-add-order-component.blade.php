@@ -8,14 +8,13 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="createModalLabel">Chọn số bao</h5>
+            <h5 class="modal-title" id="createModalLabel">Thêm số bao</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label class="col-form-label" for="qty">Số bao<span> *</span></label>
                 <input type="number" class="form-control" id="qty" name="qty" wire:model="qty">
             </div>
         </div>

@@ -16,7 +16,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="col-form-label" for="qty">Số bao<span> *</span></label>
                         <input type="number" class="form-control" id="qty" name="qty" wire:model="qty">
                     </div>
                 </div>
