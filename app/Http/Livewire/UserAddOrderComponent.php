@@ -15,12 +15,17 @@ class UserAddOrderComponent extends Component
     public $search;
     public $sortField;
     public $sortAsc;
+    public $qty;
+    public $createMode;
+    public $product_id;
 
     public function mount()
     {
         $this->search = '';
         $this->sortField = 'id';
         $this->sortAsc = false;
+        $this->qty = 0;
+        $this->createMode = false;
     }
 
     public function sortBy($field)
@@ -34,13 +39,38 @@ class UserAddOrderComponent extends Component
         $this->sortField = $field;
     }
 
-    public function addToCart($product_id)
+    private function resetInputFields(){
+        $this->qty = 0;
+    }
+
+    public function create($product_id)
     {
-        $product = Product::findOrFail($product_id);
+        $this->product_id = $product_id;
+    }
+
+    public function cancel()
+    {
+        $this->createMode = false;
+        $this->resetInputFields();
+    }
+
+    public function store()
+    {
+        $rules = [
+            'qty' => 'required|numeric|min:1',
+        ];
+        $messages = [
+            'qty.required' => 'Bạn phải nhập số bao.',
+            'qty.numeric' => 'Số bao phải là dạng số.',
+            'qty.min' => 'Số bao ít nhất phải bằng 1.',
+        ];
+        $this->validate($rules,$messages);
+
+        $product = Product::findOrFail($this->product_id);
         Cart::add(
             ['id' => $product->id,
             'name' => $product->code,
-            'qty' => 1,
+            'qty' => $this->qty,
             'price' => $product->last_price->company_price,
             'options' => [
                 'warehouse_price' => $product->last_price->warehouse_price,
@@ -50,8 +80,10 @@ class UserAddOrderComponent extends Component
                 ]
             ])->associate('App\Models\Product');
 
+        $this->createMode = false;
+        Session::flash('success_message', 'Thêm sản phẩm thành công!');
         $this->emitTo('cart-count-component', 'refreshComponent');
-        return redirect()->back();
+        $this->resetInputFields();
     }
 
     public function render()

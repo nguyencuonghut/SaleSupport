@@ -3,6 +3,30 @@
 @endsection
 
 <div>
+  <!-- Modal -->
+  <div wire:ignore.self class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="createModalLabel">Chọn số bao</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="col-form-label" for="qty">Số bao<span> *</span></label>
+                <input type="number" class="form-control" id="qty" name="qty" wire:model="qty">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" wire:click.prevent="store()" class="btn btn-primary" data-dismiss="modal">Đặt hàng</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -36,6 +60,9 @@
                 {{ Session::get('error_message') }}
                 </div>
             @endif
+            @error('qty')
+            <span class="text-danger"> {{ $message }}</span>
+            @enderror
 
             <div class="card">
               <div class="card-header">
@@ -88,7 +115,7 @@
                             <td>{{number_format($item->last_price->ht_warehouse_price, 0, '.', ',') }}</td>
                             -->
                             <td>
-                                <a href="#" wire:click.prevent="addToCart({{$item->id}})"><i class="fa fa-cart-plus"></i></a>
+                                <button data-toggle="modal" data-target="#createModal" wire:click="create('{{$item->id}}')" class="btn btn-success btn-xs">Đặt ngay</button>
                             </td>
                         </tr>
                     @endforeach
