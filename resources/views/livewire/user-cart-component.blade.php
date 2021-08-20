@@ -82,13 +82,14 @@
                     <tr>
                       <th>STT</th>
                       <th>Mã SP</th>
+                      <!--
                       <th>Quy cách</th>
                       <th>Trừ trực tiếp</th>
                       <th>Giá nhà máy</th>
                       <th>Giá kho</th>
                       <th>Giá kho HT</th>
+                      -->
                       <th>Số bao</th>
-                      <th>Trọng lượng</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>
@@ -103,13 +104,15 @@
                         <tr>
                             <td>{{$i}}</td>
                             <td>{{$item->name}}</td>
+                            <!--
                             <td>{{$item->options->weight}}</td>
                             <td>{{$item->options->discount}}</td>
                             <td>{{number_format($item->price, 0, '.', ',')}}</td>
                             <td>{{number_format($item->options->warehouse_price, 0, '.', ',')}}</td>
                             <td>{{number_format($item->options->ht_warehouse_price, 0, '.', ',')}}</td>
-                            <td>{{$item->qty}}</td>
                             <td>{{number_format($item->qty * $item->options->weight, 0, '.', ',')}} kg</td>
+                            -->
+                            <td>{{$item->qty}}</td>
                             <td>
                                 <button data-toggle="modal" data-target="#updateModal" wire:click="edit('{{$item->rowId}}')" class="btn btn-warning btn-xs">Sửa</button>
                                 <button class="btn btn-danger btn-xs" wire:click.prevent="destroy('{{ $item->rowId }}')">Xóa</button>
@@ -117,24 +120,28 @@
                         </tr>
                     @endforeach
                     <tr>
-                      <td colspan="4"><b>Cộng tiền hàng<b></td>
-                      <td>{{number_format($subtotal_company, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_warehouse, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_ht_warehouse, 0, '.', ',')}}</td>
-                      <td>{{number_format($total_qty, 0, '.', ',')}}</td>
-                      <td>{{number_format($total_weight, 0, '.', ',')}} kg</td>
+                      <td><b>Trọng lượng<b></td>
+                      <td style="color: blue;">{{number_format($total_weight, 0, '.', ',')}} kg</td>
                     </tr>
                     <tr>
-                      <td colspan="4"><b>Các khoản giảm trừ<b></td>
-                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
+                      <td><b>Tiền hàng<b></td>
+                      <td style="color: blue;">{{number_format($subtotal_company, 0, '.', ',')}} đ</td>
                     </tr>
                     <tr>
-                      <td colspan="4"><b>Tiền phải nộp</b></td>
-                      <td>{{number_format($subtotal_company - $subtotal_discount, 0, '.', ',')}}</td>
+                      <td><b>Giảm trừ<b></td>
+                      <td style="color: blue;">{{number_format($subtotal_discount, 0, '.', ',')}} đ</td>
+                      <!--
+                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
+                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
+                      -->
+                    </tr>
+                    <tr>
+                      <td><b>Tiền nộp</b></td>
+                      <td style="color: blue;">{{number_format($subtotal_company - $subtotal_discount, 0, '.', ',')}} đ</td>
+                      <!--
                       <td>{{number_format($subtotal_warehouse - $subtotal_discount, 0, '.', ',')}}</td>
                       <td>{{number_format($subtotal_ht_warehouse - $subtotal_discount, 0, '.', ',')}}</td>
+                      -->
                     </tr>
                   </tbody>
                 </table>
