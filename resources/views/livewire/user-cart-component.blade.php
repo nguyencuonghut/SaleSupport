@@ -66,14 +66,10 @@
             @enderror
 
             @if(Cart::count() > 0)
+            <!-- Order table -->
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Giỏ hàng</h3>
-                <div class="card-tools" style="margin: 5px;">
-                    <div class="input-group input-group-sm">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search" wire:model="search">
-                    </div>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -119,37 +115,43 @@
                             </td>
                         </tr>
                     @endforeach
-                    <tr>
-                      <td><b>Trọng lượng<b></td>
-                      <td style="color: blue;">{{number_format($total_weight, 0, '.', ',')}} kg</td>
-                    </tr>
-                    <tr>
-                      <td><b>Tiền hàng<b></td>
-                      <td style="color: blue;">{{number_format($subtotal_company, 0, '.', ',')}} đ</td>
-                    </tr>
-                    <tr>
-                      <td><b>Giảm trừ<b></td>
-                      <td style="color: blue;">{{number_format($subtotal_discount, 0, '.', ',')}} đ</td>
-                      <!--
-                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_discount, 0, '.', ',')}}</td>
-                      -->
-                    </tr>
-                    <tr>
-                      <td><b>Tiền nộp</b></td>
-                      <td style="color: blue;">{{number_format($subtotal_company - $subtotal_discount, 0, '.', ',')}} đ</td>
-                      <!--
-                      <td>{{number_format($subtotal_warehouse - $subtotal_discount, 0, '.', ',')}}</td>
-                      <td>{{number_format($subtotal_ht_warehouse - $subtotal_discount, 0, '.', ',')}}</td>
-                      -->
-                    </tr>
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary" wire:click.prevent="destroyAll()">Xóa tất cả</button>
+              </div>
             </div>
+            <!-- /.card -->
+
+            <!-- Invoice table -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Tiền hàng</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <tr>
+                    <td>Tổng trọng lượng</td>
+                    <td>{{number_format($total_weight , 0, '.', ',')}} kg</td>
+                  </tr>
+                  <tr>
+                    <td>Tiền hàng</td>
+                    <td>{{number_format($subtotal_company , 0, '.', ',')}} đ</td>
+                  </tr>
+                  <tr>
+                    <td>Giảm trừ</td>
+                    <td>{{number_format($subtotal_discount , 0, '.', ',')}} đ</td>
+                  </tr>
+                  <tr>
+                    <td style="color: blue;">Tiền nộp</td>
+                    <td style="color: blue;">{{number_format($subtotal_company - $subtotal_discount, 0, '.', ',')}} đ</td>
+                  </tr>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
             @else
