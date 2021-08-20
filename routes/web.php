@@ -35,11 +35,11 @@ use App\Http\Livewire\UserCartComponent;
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/orders/add', UserAddOrderComponent::class)->name('user.add.order');
+Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
 Route::get('/cart', UserCartComponent::class)->name('user.cart');
+Route::get('/home', HomeComponent::class)->name('home');
 
 Route::group(['middleware' => 'auth'], function (){
-    Route::get('/', HomeComponent::class)->name('home');;
     Route::get('admin/departments', DepartmentComponent::class)->name('admin.departments');
     Route::get('admin/departments/show/{department_id}', DepartmentDetailComponent::class)->name('admin.show.department');
     Route::get('admin/departments/add', AddDepartmentComponent::class)->name('admin.add.department');

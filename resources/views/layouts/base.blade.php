@@ -115,7 +115,7 @@
              </a>
              <ul class="nav nav-treeview">
                <li class="nav-item">
-                 <a href="{{ route('user.add.order') }}" class="nav-link {{ Request::is('orders/add') ? 'active' : '' }}">
+                 <a href="{{ route('user.add.order') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                    <i class="far fa-circle nav-icon"></i>
                    <p>Tạo đơn hàng</p>
                  </a>
