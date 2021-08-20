@@ -11,6 +11,7 @@ class UserCartComponent extends Component
     public $qty;
     public $updateMode = false;
     public $rowId;
+    public $price_type = 'Giá nhà máy';
 
     public function destroy($rowId)
     {
@@ -83,11 +84,21 @@ class UserCartComponent extends Component
             $subtotal_discount += $item->qty * $item->options->weight * $item->options->discount;
             $subtotal_warehouse += $item->qty * $item->options->weight * $item->options->discount;
         }
+        $subtotal = $subtotal_company;
+        switch($this->price_type) {
+            case 'Giá nhà máy' :
+                $subtotal = $subtotal_company;
+                break;
+            case 'Giá kho' :
+                $subtotal = $subtotal_warehouse;
+                break;
+            case 'Giá kho Hà Tĩnh' :
+                $subtotal = $subtotal_ht_warehouse;
+                break;
+        }
         $total_qty = Cart::count();
         return view('livewire.user-cart-component',
-                    ['subtotal_company' => $subtotal_company,
-                    'subtotal_warehouse' => $subtotal_warehouse,
-                    'subtotal_ht_warehouse' => $subtotal_ht_warehouse,
+                    ['subtotal' => $subtotal,
                     'total_weight' => $total_weight,
                     'total_qty' => $total_qty,
                     'subtotal_discount' => $subtotal_discount,

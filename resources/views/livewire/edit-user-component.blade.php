@@ -96,7 +96,7 @@
                                       <option value='Nhân viên'>Nhân viên</option>
                                       <option value='Admin'>Admin</option>
                                     </select>
-                                    @error('department_id')
+                                    @error('type')
                                       <span class="text-danger"> {{ $message }}</span>
                                     @enderror
                                   </div>
@@ -137,5 +137,12 @@
     @this.set(elementName, e.target.value);
   });
 
+  $(document).ready(function () {
+    $('#type').select2();
+  });
+  $('#type').change(function (e) {
+    let elementName = $(this).attr('id');
+    @this.set(elementName, e.target.value);
+  });
 </script>
 @endpush

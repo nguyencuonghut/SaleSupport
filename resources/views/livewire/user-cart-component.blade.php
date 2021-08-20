@@ -129,6 +129,15 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Tiền hàng</h3>
+                <div class="card-tools" style="margin: 5px;">
+                    <div class="input-group input-group-sm">
+                        <select class="form-control float-right" style="width: 100%;" name="price_type" id="price_type" wire:model="price_type">
+                            <option value='Giá nhà máy'>Giá nhà máy</option>
+                            <option value='Giá kho'>Giá kho</option>
+                            <option value='Giá kho Hà Tĩnh'>Giá kho Hà Tĩnh</option>
+                          </select>
+                    </div>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -139,7 +148,7 @@
                   </tr>
                   <tr>
                     <td>Tiền hàng</td>
-                    <td>{{number_format($subtotal_company , 0, '.', ',')}} đ</td>
+                    <td>{{number_format($subtotal , 0, '.', ',')}} đ</td>
                   </tr>
                   <tr>
                     <td>Giảm trừ</td>
@@ -147,7 +156,7 @@
                   </tr>
                   <tr>
                     <td style="color: blue;">Tiền nộp</td>
-                    <td style="color: blue;">{{number_format($subtotal_company - $subtotal_discount, 0, '.', ',')}} đ</td>
+                    <td style="color: blue;">{{number_format($subtotal - $subtotal_discount, 0, '.', ',')}} đ</td>
                   </tr>
                 </table>
               </div>
