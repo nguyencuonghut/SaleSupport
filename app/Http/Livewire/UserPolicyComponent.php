@@ -21,30 +21,6 @@ class UserPolicyComponent extends Component
     *
     * @return response()
     */
-    public function addevent($event)
-    {
-        $input['title'] = $event['title'];
-        $input['start'] = $event['start'];
-        Policy::create($input);
-    }
-
-    /**
-    * Write code on Method
-    *
-    * @return response()
-    */
-    public function eventDrop($event, $oldEvent)
-    {
-      $eventdata = Policy::find($event['id']);
-      $eventdata->start = $event['start'];
-      $eventdata->save();
-    }
-
-    /**
-    * Write code on Method
-    *
-    * @return response()
-    */
     public function render()
     {
         $events = Policy::select('id','title', 'content', 'start', 'end')->get();
