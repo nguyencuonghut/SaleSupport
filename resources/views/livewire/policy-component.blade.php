@@ -107,7 +107,7 @@
                             <td>{{$item->date_range}}</td>
                             <td>
                                 <a href="#"><i class="fa fa-eye"></i></a>
-                                <a href="#"><i class="fa fa-edit"></i></a>
+                                <a href="{{route('admin.edit.policy', $item->id)}}"><i class="fa fa-edit"></i></a>
                                 <a href="#" wire:click.prevent="deletePolicy({{$item->id}})"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
