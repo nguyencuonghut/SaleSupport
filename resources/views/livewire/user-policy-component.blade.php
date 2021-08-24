@@ -45,12 +45,20 @@
   <!-- fullCalendar 2.2.5 -->
   <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
   <script src="{{asset('plugins/fullcalendar/main.js')}}"></script>
+  <script src="{{asset('plugins/fullcalendar/locales-all.js')}}"></script>
+
   <script>
     document.addEventListener('livewire:load', function() {
         var Calendar = FullCalendar.Calendar;
         var calendarEl = document.getElementById('calendar');
         var data =   @this.events;
         var calendar = new Calendar(calendarEl, {
+        locale: 'vi',
+        headerToolbar: {
+            left  : 'prev,next today',
+            center: 'title',
+            right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
         events: JSON.parse(data),
         loading: function(isLoading) {
                 if (!isLoading) {
