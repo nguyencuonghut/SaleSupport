@@ -23,7 +23,7 @@ class UserPolicyComponent extends Component
     */
     public function render()
     {
-        $events = Policy::select('id','title', 'content', 'start', 'end', 'backgroundColor', 'borderColor')->get();
+        $events = Policy::select('id','title', 'content', 'start', 'end', 'backgroundColor', 'borderColor', 'url')->get();
 
         $this->events = json_encode($events);
         return view('livewire.user-policy-component')->layout('layouts.base');

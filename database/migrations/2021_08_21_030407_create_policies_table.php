@@ -17,8 +17,9 @@ class CreatePoliciesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->text('backgroundColor');
-            $table->text('borderColor');
+            $table->string('backgroundColor');
+            $table->string('borderColor');
+            $table->string('url');
             $table->date('start');
             $table->date('end');
             $table->timestamps();

@@ -110,8 +110,8 @@
                     @foreach ($policies as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td>{{$item->title}}</td>
-                            <td>{!! $item->content !!}</td>
+                            <td style="width: 20%;">{{$item->title}}</td>
+                            <td style="width: 40%;">{!! $item->content !!}</td>
                             <td>{{$item->start}}</td>
                             <td>{{$item->end}}</td>
                             <td>

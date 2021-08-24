@@ -59,6 +59,7 @@
             center: 'title',
             right : 'dayGridMonth,timeGridWeek,timeGridDay'
         },
+        editable: true,
         events: JSON.parse(data),
         loading: function(isLoading) {
                 if (!isLoading) {
@@ -72,6 +73,7 @@
             }
         });
         calendar.render();
+        //console.log(@this.events);
     });
   </script>
 @endpush

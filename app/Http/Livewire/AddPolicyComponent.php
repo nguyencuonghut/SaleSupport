@@ -39,6 +39,11 @@ class AddPolicyComponent extends Component
         $policy->end = Carbon::parse($dates[1]);
         $policy->backgroundColor = Arr::random($colors);
         $policy->borderColor = $policy->backgroundColor;
+        $policy->url = "null";
+        $policy->save();
+
+        //Update the url
+        $policy->url = 'policy/show/' . $policy->id;
         $policy->save();
 
         Session::flash('success_message', 'Chính sách mới được tạo thành công!');

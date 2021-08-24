@@ -16,5 +16,6 @@ class Policy extends Model
         'end',
         'backgroundColor',
         'borderColor',
+        'url',
     ];
 }

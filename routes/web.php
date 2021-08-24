@@ -24,6 +24,7 @@ use App\Http\Livewire\ProductPriceComponent;
 use App\Http\Livewire\UserAddOrderComponent;
 use App\Http\Livewire\UserCartComponent;
 use App\Http\Livewire\UserPolicyComponent;
+use App\Http\Livewire\UserPolicyDetailComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
 Route::get('/cart', UserCartComponent::class)->name('user.cart');
 Route::get('/home', HomeComponent::class)->name('home');
 Route::get('/policy', UserPolicyComponent::class)->name('user.policy');
+Route::get('/policy', UserPolicyComponent::class)->name('user.policy');
+Route::get('/policy/show/{policy_id}', UserPolicyDetailComponent::class)->name('user.show.policy');
+
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('admin/departments', DepartmentComponent::class)->name('admin.departments');
