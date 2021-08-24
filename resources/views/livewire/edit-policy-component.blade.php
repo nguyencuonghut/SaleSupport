@@ -54,9 +54,9 @@
                     <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="col-form-label" for="name">Tên<span> *</span></label>
-                            <input type="text" class="form-control" id="name" name="name" wire:model="name">
-                            @error('name')
+                            <label class="col-form-label" for="title">Tiêu đề<span> *</span></label>
+                            <input type="text" class="form-control" id="title" name="title" wire:model="title">
+                            @error('title')
                               <span class="text-danger"> {{ $message }}</span>
                             @enderror
                           </div>

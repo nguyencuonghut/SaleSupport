@@ -15,9 +15,10 @@ class CreatePoliciesTable extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->text('content');
-            $table->string('date_range');
+            $table->date('start');
+            $table->date('end');
             $table->timestamps();
         });
     }

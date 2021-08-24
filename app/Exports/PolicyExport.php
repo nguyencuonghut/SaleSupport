@@ -16,18 +16,20 @@ class PolicyExport implements FromCollection,  WithHeadings, WithMapping, WithSt
     {
         return [
             'ID',
-            'Tên',
+            'Tiêu đề',
             'Nội dung',
-            'Thời gian áp dụng',
+            'Bắt đầu',
+            'Kết thúc',
         ];
     }
     public function map($policy): array
     {
         return [
             $policy->id,
-            $policy->name,
+            $policy->title,
             strip_tags($policy->content),
-            $policy->date_range,
+            $policy->start,
+            $policy->end,
         ];
     }
 
@@ -39,6 +41,8 @@ class PolicyExport implements FromCollection,  WithHeadings, WithMapping, WithSt
             'A'  => ['alignment' => ['horizontal' => 'left']],
             'B'  => ['alignment' => ['horizontal' => 'left']],
             'C'  => ['alignment' => ['horizontal' => 'left']],
+            'D'  => ['alignment' => ['horizontal' => 'left']],
+            'E'  => ['alignment' => ['horizontal' => 'left']],
         ];
     }
 
@@ -48,7 +52,8 @@ class PolicyExport implements FromCollection,  WithHeadings, WithMapping, WithSt
             'A' => 5,
             'B' => 35,
             'C' => 35,
-            'D' => 30,
+            'D' => 20,
+            'E' => 20,
         ];
     }
 
@@ -57,6 +62,6 @@ class PolicyExport implements FromCollection,  WithHeadings, WithMapping, WithSt
     */
     public function collection()
     {
-        return Policy::select('id', 'name', 'content', 'date_range')->get();
+        return Policy::select('id', 'title', 'content', 'start', 'end')->get();
     }
 }

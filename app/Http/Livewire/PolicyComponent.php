@@ -59,9 +59,10 @@ class PolicyComponent extends Component
     public function render()
     {
         $policies = Policy::where('id', 'like', '%'.$this->search.'%')
-                    ->orWhere('name', 'like', '%'.$this->search.'%')
+                    ->orWhere('title', 'like', '%'.$this->search.'%')
                     ->orWhere('content', 'like', '%'.$this->search.'%')
-                    ->orWhere('date_range', 'like', '%'.$this->search.'%')
+                    ->orWhere('start', 'like', '%'.$this->search.'%')
+                    ->orWhere('end', 'like', '%'.$this->search.'%')
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate(10);
         return view('livewire.policy-component', ['policies' => $policies])->layout('layouts.base');

@@ -72,9 +72,9 @@
                         @endif
                       </th>
                       <th>
-                        <a wire:click.prevent="sortBy('name')" role="button" href="#" style="color:#212529">Tên</a>
-                        @if($sortField == 'name')
-                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'name' ? '' : 'color:#cccccc'}} "></i>
+                        <a wire:click.prevent="sortBy('title')" role="button" href="#" style="color:#212529">Tiêu đề</a>
+                        @if($sortField == 'title')
+                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'title' ? '' : 'color:#cccccc'}} "></i>
                         @else
                         <i class="fa fa-sort" style="color:#cccccc"></i>
                         @endif
@@ -88,9 +88,17 @@
                         @endif
                       </th>
                       <th>
-                        <a wire:click.prevent="sortBy('date_range')" role="button" href="#" style="color:#212529">Thời gian áp dụng</a>
-                        @if($sortField == 'date_range')
-                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'date_range' ? '' : 'color:#cccccc'}} "></i>
+                        <a wire:click.prevent="sortBy('start')" role="button" href="#" style="color:#212529">Bắt đầu</a>
+                        @if($sortField == 'start')
+                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'start' ? '' : 'color:#cccccc'}} "></i>
+                        @else
+                        <i class="fa fa-sort" style="color:#cccccc"></i>
+                        @endif
+                      </th>
+                      <th>
+                        <a wire:click.prevent="sortBy('end')" role="button" href="#" style="color:#212529">Kết thúc</a>
+                        @if($sortField == 'end')
+                        <i class="fa {{ $sortAsc == true ? 'fa-sort-up' : 'fa-sort-down' }}" style=" {{ $sortField == 'end' ? '' : 'color:#cccccc'}} "></i>
                         @else
                         <i class="fa fa-sort" style="color:#cccccc"></i>
                         @endif
@@ -102,9 +110,10 @@
                     @foreach ($policies as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td>{{$item->name}}</td>
+                            <td>{{$item->title}}</td>
                             <td>{!! $item->content !!}</td>
-                            <td>{{$item->date_range}}</td>
+                            <td>{{$item->start}}</td>
+                            <td>{{$item->end}}</td>
                             <td>
                                 <a href="#"><i class="fa fa-eye"></i></a>
                                 <a href="{{route('admin.edit.policy', $item->id)}}"><i class="fa fa-edit"></i></a>
