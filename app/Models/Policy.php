@@ -12,6 +12,9 @@ class Policy extends Model
     protected $fillable = [
         'name',
         'content',
-        'date_range',
+        'start',
+        'end',
+        'backgroundColor',
+        'borderColor',
     ];
 }
