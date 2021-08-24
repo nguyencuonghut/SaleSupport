@@ -128,6 +128,14 @@
                </li>
              </ul>
            </li>
+           <li class="nav-item">
+            <a href="{{ route('user.policy') }}" class="nav-link {{ Request::is('policy*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Chính sách
+              </p>
+            </a>
+          </li>
 
            <li class="nav-header">HỆ THỐNG</li>
            <li class="nav-item">
