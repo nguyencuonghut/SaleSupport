@@ -3,8 +3,6 @@
 @endsection
 
 @push('styles')
-<!-- summernote -->
-<link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
 @endpush
@@ -119,24 +117,26 @@
 
 
 @push('scripts')
-<!-- Summernote -->
-<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/e3bnfbklzgurryhevo3vf4sh4nkr4wtroybjufxn5bqsj8r7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <!-- date-range-picker -->
 <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
 <script>
-    // Summernote
-    $('#content').summernote({
-        height: 100,
-        callbacks: {
-            onChange: function(contents, $editable) {
-                @this.set('content', contents);
-            },
-        }
-    });
-    $("#content").on("summernote.enter", function(we, e) {
-        $(this).summernote("pasteHTML", "<br><br>");
-        e.preventDefault();
+    // Tiny MCE
+    $(function() {
+        tinymce.init({
+            forced_root_block: false,
+            entity_encoding : "raw",
+            selector: '#content',
+            setup:function(editor){
+                editor.on('Change', function(e){
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#content').val();
+                    @this.set('content', sd_data);
+                });
+            }
+        });
     });
 
     //Date range picker
