@@ -59,6 +59,7 @@
             center: 'title',
             right : 'dayGridMonth,timeGridWeek,timeGridDay'
         },
+        eventTextColor: 'black',
         editable: true,
         events: JSON.parse(data),
         loading: function(isLoading) {
