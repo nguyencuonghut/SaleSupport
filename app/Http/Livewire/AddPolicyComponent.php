@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Policy;
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
@@ -14,6 +13,14 @@ class AddPolicyComponent extends Component
     public $content;
     public $date_range;
 
+    function get_random_color(){
+        $chars = '456789ABCDEF';
+        $color = '#';
+        for ( $i = 0; $i < 6; $i++ ) {
+           $color .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        return $color;
+    }
 
     public function addPolicy()
     {
@@ -29,7 +36,6 @@ class AddPolicyComponent extends Component
         ];
         $this->validate($rules,$messages);
 
-        $colors = ['#f56954', '#f39c12', '#0073b7', '#00c0ef', '#00a65a', '#3c8dbc'];
         $policy = new Policy();
         $policy->title = $this->title;
         $policy->content = $this->content;
@@ -37,7 +43,7 @@ class AddPolicyComponent extends Component
         $dates = explode(' - ', $this->date_range);
         $policy->start = Carbon::parse($dates[0]);
         $policy->end = Carbon::parse($dates[1]);
-        $policy->backgroundColor = Arr::random($colors);
+        $policy->backgroundColor = $this->get_random_color();
         $policy->borderColor = $policy->backgroundColor;
         $policy->url = "null";
         $policy->save();
