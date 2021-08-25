@@ -4,11 +4,19 @@ namespace Database\Seeders;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class PolicyTableSeeder extends Seeder
 {
+    function get_random_color(){
+        $chars = '456789ABCDEF';
+        $color = '#';
+        for ( $i = 0; $i < 6; $i++ ) {
+           $color .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        return $color;
+    }
+
     /**
      * Run the database seeds.
      *
@@ -18,7 +26,6 @@ class PolicyTableSeeder extends Seeder
     {
         DB::table('policies')->delete();
 
-        $colors = ['#f56954', '#f39c12', '#0073b7', '#00c0ef', '#00a65a', '#3c8dbc'];
         DB::table('policies')->insert(array (
             0 =>
                 array (
@@ -36,7 +43,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-08-01',
                     'end' => '2021-08-31',
                     'url' => 'policy/show/1',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -53,7 +60,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-08-01',
                     'end' => '2021-08-31',
                     'url' => 'show/2',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -66,7 +73,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-08-01',
                     'end' => '2021-08-31',
                     'url' => 'show/3',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -79,7 +86,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-06-16',
                     'end' => '2021-09-16',
                     'url' => 'show/4',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -92,7 +99,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-05-18',
                     'end' => '2021-08-18',
                     'url' => 'show/5',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -105,7 +112,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-06-12',
                     'end' => '2021-09-11',
                     'url' => 'show/6',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -118,7 +125,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-07-16',
                     'end' => '2021-09-30',
                     'url' => 'show/7',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -131,7 +138,7 @@ class PolicyTableSeeder extends Seeder
                     'start' => '2021-07-16',
                     'end' => '2021-08-31',
                     'url' => 'show/8',
-                    'backgroundColor' => $color= Arr::random($colors),
+                    'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
