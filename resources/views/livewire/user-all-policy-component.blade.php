@@ -27,7 +27,7 @@
                 <div class="col mb-4">
                     <div class="card h-100">
                       <div class="card-body">
-                        <h5 class="card-title">{{$policy->title}}</h5>
+                        <h5 class="card-title"><b><i>{{$policy->title}}</b> ({{Carbon\Carbon::parse($policy->start)->format('m/d/Y')}} - {{Carbon\Carbon::parse($policy->end)->format('m/d/Y')}})<i></h5>
                         <p class="card-text">{!!$policy->content!!}</p>
                       </div>
                     </div>
