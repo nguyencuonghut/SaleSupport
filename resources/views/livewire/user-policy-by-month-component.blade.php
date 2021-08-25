@@ -12,7 +12,7 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Chính sách</li>
+              <li class="breadcrumb-item active">Chính sách tháng {{Carbon\Carbon::now()->format('m-Y')}}</li>
             </ol>
           </div>
         </div>

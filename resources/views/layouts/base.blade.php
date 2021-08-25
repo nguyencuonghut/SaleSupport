@@ -138,9 +138,9 @@
              </a>
              <ul class="nav nav-treeview">
                <li class="nav-item">
-                 <a href="{{ route('user.policy.all') }}" class="nav-link {{ Request::is('policy/all') ? 'active' : '' }}">
+                 <a href="{{ route('user.policy.month') }}" class="nav-link {{ Request::is('policy/month') ? 'active' : '' }}">
                    <i class="far fa-circle nav-icon"></i>
-                   <p>Tất cả chính sách</p>
+                   <p>Tháng này</p>
                  </a>
                </li>
                <li class="nav-item">

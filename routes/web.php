@@ -22,7 +22,7 @@ use App\Http\Livewire\PriceComponent;
 use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\ProductPriceComponent;
 use App\Http\Livewire\UserAddOrderComponent;
-use App\Http\Livewire\UserAllPolicyComponent;
+use App\Http\Livewire\UserPolicyByMonthComponent;
 use App\Http\Livewire\UserCartComponent;
 use App\Http\Livewire\UserPolicyComponent;
 use App\Http\Livewire\UserPolicyDetailComponent;
@@ -44,7 +44,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
 Route::get('/cart', UserCartComponent::class)->name('user.cart');
 Route::get('/home', HomeComponent::class)->name('home');
-Route::get('/policy/all', UserAllPolicyComponent::class)->name('user.policy.all');
+Route::get('/policy/month', UserPolicyByMonthComponent::class)->name('user.policy.month');
 Route::get('/policy/calendar', UserPolicyComponent::class)->name('user.policy.calendar');
 Route::get('/policy/show/{policy_id}', UserPolicyDetailComponent::class)->name('user.show.policy');
 

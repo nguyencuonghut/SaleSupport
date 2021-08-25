@@ -40,8 +40,8 @@ class PolicyTableSeeder extends Seeder
                                 + Heo còn lại, gà thịt, vịt thịt, cám bò: 300đ/kg
                                 + Gia cầm đẻ 100đ/kg.
                                 Phần trừ khuyến mãi tặng bao, dòng thịt 200đ, gia cầm đẻ 100đ từ ngày 01/8 - 04/8 sẽ tính trả vào chiết khấu tháng 8',
-                    'start' => '2021-08-01',
-                    'end' => '2021-08-31',
+                    'start' => '2021-07-01',
+                    'end' => '2021-07-22',
                     'url' => 'policy/show/1',
                     'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
@@ -57,8 +57,8 @@ class PolicyTableSeeder extends Seeder
                                 8200: 300đ/kg
                                 Vịt đẻ 200đ/kg; Cút đẻ 100đ/kg; gà đẻ 200đ/kg
                                 Hỗ trợ tăng giá từ 10/8-25/8 mức gà đẻ vịt đẻ 80đ/kg; cút đẻ 100đ/kg',
-                    'start' => '2021-08-01',
-                    'end' => '2021-08-31',
+                    'start' => '2021-07-21',
+                    'end' => '2021-08-11',
                     'url' => 'show/2',
                     'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
@@ -97,7 +97,7 @@ class PolicyTableSeeder extends Seeder
                     'title' => '5.Khuyến mãi kéo dài, nhắc lại: 1410E',
                     'content' => '1410E mức 200đ/kg',
                     'start' => '2021-05-18',
-                    'end' => '2021-08-18',
+                    'end' => '2021-09-18',
                     'url' => 'show/5',
                     'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
@@ -135,8 +135,8 @@ class PolicyTableSeeder extends Seeder
                     'id' => 8,
                     'title' => '8.Khuyến mãi kéo dài, nhắc lại: 1135S, 1130S, 1100S, 1410, 1410E, 1680R',
                     'content' => '1135S, 1130S, 1100S, 1410, 1410E, 1680R mức 300đ/kg',
-                    'start' => '2021-07-16',
-                    'end' => '2021-08-31',
+                    'start' => '2021-09-16',
+                    'end' => '2021-09-30',
                     'url' => 'show/8',
                     'backgroundColor' => $color= $this->get_random_color(),
                     'borderColor' => $color,
