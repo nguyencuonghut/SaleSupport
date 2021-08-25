@@ -128,14 +128,29 @@
                </li>
              </ul>
            </li>
-           <li class="nav-item">
-            <a href="{{ route('user.policy') }}" class="nav-link {{ Request::is('policy*') ? 'active' : '' }}">
+           <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
-              <p>
-                Chính sách
-              </p>
-            </a>
-          </li>
+               <p>
+                 Chính sách
+                 <i class="right fas fa-angle-left"></i>
+               </p>
+             </a>
+             <ul class="nav nav-treeview">
+               <li class="nav-item">
+                 <a href="{{ route('user.policy.all') }}" class="nav-link {{ Request::is('policy/all') ? 'active' : '' }}">
+                   <i class="far fa-circle nav-icon"></i>
+                   <p>Tất cả chính sách</p>
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a href="{{ route('user.policy.calendar') }}" class="nav-link {{ Request::is('policy/calendar') ? 'active' : '' }}">
+                   <i class="far fa-circle nav-icon"></i>
+                   <p>Dòng thời gian</p>
+                 </a>
+               </li>
+             </ul>
+           </li>
 
            <li class="nav-header">HỆ THỐNG</li>
            <li class="nav-item">

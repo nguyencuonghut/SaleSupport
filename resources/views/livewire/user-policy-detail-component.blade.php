@@ -12,7 +12,7 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="{{route('home')}}">Trang chủ</a></li>
-              <li class="breadcrumb-item"><a href="{{route('user.policy')}}">Chính sách</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.policy.calendar')}}">Chính sách</a></li>
               <li class="breadcrumb-item active">{{$policy->title}}</li>
             </ol>
           </div>
