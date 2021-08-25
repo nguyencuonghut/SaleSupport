@@ -1,5 +1,5 @@
 @section('title')
-    Chính sách
+    Dòng thời gian
 @endsection
 
 @push('styles')

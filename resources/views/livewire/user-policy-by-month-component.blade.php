@@ -1,5 +1,5 @@
 @section('title')
-    Tất cả chính sách
+    Chính sách tháng {{Carbon\Carbon::now()->format('m-Y')}}
 @endsection
 
 <div>
