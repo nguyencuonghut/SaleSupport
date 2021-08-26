@@ -82,7 +82,6 @@ class UserCartComponent extends Component
             $total_weight += $item->qty * $item->options->weight;
 
             $subtotal_discount += $item->qty * $item->options->weight * $item->options->discount;
-            $subtotal_warehouse += $item->qty * $item->options->weight * $item->options->discount;
         }
         $subtotal = $subtotal_company;
         switch($this->price_type) {
