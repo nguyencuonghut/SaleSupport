@@ -7,7 +7,7 @@
       <span class="dropdown-item dropdown-header">{{Cart::count()}} sản phẩm cho {{Cart::content()->count()}} mã hàng</span>
       @foreach (Cart::content() as $item)
         <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
+        <a href="{{route('user.cart')}}" class="dropdown-item">
             {{$item->name}}
             <span class="float-right text-muted text-sm">{{$item->qty}} bao</span>
         </a>
