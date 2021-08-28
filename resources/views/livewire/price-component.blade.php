@@ -24,13 +24,27 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            <!-- Display session message -->
+            @if(Session::has('success_message'))
+              <div class="alert alert-success">
+                {{ Session::get('success_message') }}
+              </div>
+            @endif
+            @if(Session::has('error_message'))
+              <div class="alert alert-danger">
+                {{ Session::get('error_message') }}
+              </div>
+            @endif
             <div class="card">
               <div class="card-header">
                 <div class="row">
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="btn-group" role="group" aria-label="Basic example" style="text-align:center">
-                            <button type="button" class="btn btn-secondary" wire:click="exportExcel('xlsx')" wire:loading.attr="disable">Excel</button>
-                            <button type="button" class="btn btn-secondary" wire:click="exportPdf('pdf')" wire:loading.attr="disable">Pdf</button>
+                            <button type="button" class="btn btn-primary" wire:click="exportExcel('xlsx')" wire:loading.attr="disable">Excel</button>
+                            <button type="button" class="btn btn-primary" wire:click="exportPdf('pdf')" wire:loading.attr="disable">Pdf</button>
+                            <a href={{route('admin.importview.price')}}>
+                                <button class="btn btn-success">Import</button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">

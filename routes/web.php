@@ -17,6 +17,7 @@ use App\Http\Livewire\AddPriceComponent;
 use App\Http\Livewire\AddProductComponent;
 use App\Http\Livewire\EditPolicyComponent;
 use App\Http\Livewire\EditProductComponent;
+use App\Http\Livewire\ImportPriceComponent;
 use App\Http\Livewire\PolicyComponent;
 use App\Http\Livewire\PriceComponent;
 use App\Http\Livewire\ProductComponent;
@@ -64,6 +65,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('admin/products/show/{product_id}', ProductPriceComponent::class)->name('admin.show.productprice');
     Route::get('admin/prices', PriceComponent::class)->name('admin.prices');
     Route::get('admin/prices/add', AddPriceComponent::class)->name('admin.add.price');
+    Route::get('admin/prices/importView', ImportPriceComponent::class)->name('admin.importview.price');
     Route::get('admin/policies', PolicyComponent::class)->name('admin.policies');
     Route::get('admin/policies/add', AddPolicyComponent::class)->name('admin.add.policy');
     Route::get('admin/policies/edit/{policy_id}', EditPolicyComponent::class)->name('admin.edit.policy');
