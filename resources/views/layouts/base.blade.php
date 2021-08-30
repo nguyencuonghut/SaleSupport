@@ -129,6 +129,7 @@
                </li>
              </ul>
            </li>
+           @if(Auth::check())
            <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -152,6 +153,7 @@
                </li>
              </ul>
            </li>
+           @endif
 
            @if(Auth::check() && Auth::user()->type == 'Admin')
            <li class="nav-header">HỆ THỐNG</li>
