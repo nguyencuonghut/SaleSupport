@@ -22,6 +22,7 @@ class UserComponent extends Component
         $this->search = '';
         $this->sortField = 'id';
         $this->sortAsc = false;
+        $this->middleware('auth');
     }
 
     public function sortBy($field)

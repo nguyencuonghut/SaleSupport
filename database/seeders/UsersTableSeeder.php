@@ -32,6 +32,19 @@ class UsersTableSeeder extends Seeder
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ),
+            1 =>
+                array (
+                    'id' => 2,
+                    'name' => 'Phạm Thị Trang',
+                    'email' => 'phamthitrang@honghafeed.com.vn',
+                    'password' => bcrypt('Hongha@123'),
+                    'type' => 'Nhân viên',
+                    'department_id' => 4,
+                    'email_verified_at' => null,
+                    'remember_token' => null,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ),
 
         ));
         User::factory(99)->create();

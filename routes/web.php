@@ -50,7 +50,7 @@ Route::get('/policy/calendar', UserPolicyComponent::class)->name('user.policy.ca
 Route::get('/policy/show/{policy_id}', UserPolicyDetailComponent::class)->name('user.show.policy');
 
 
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'isAdmin'], function (){
     Route::get('admin/departments', DepartmentComponent::class)->name('admin.departments');
     Route::get('admin/departments/show/{department_id}', DepartmentDetailComponent::class)->name('admin.show.department');
     Route::get('admin/departments/add', AddDepartmentComponent::class)->name('admin.add.department');

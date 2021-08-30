@@ -153,6 +153,7 @@
              </ul>
            </li>
 
+           @if(Auth::check() && Auth::user()->type == 'Admin')
            <li class="nav-header">HỆ THỐNG</li>
            <li class="nav-item">
              <a href="{{ route('admin.policies') }}" class="nav-link {{ Request::is('admin/policies*') ? 'active' : '' }}">
@@ -194,6 +195,7 @@
                </p>
              </a>
            </li>
+           @endif
         </ul>
       </nav>
     </div>
