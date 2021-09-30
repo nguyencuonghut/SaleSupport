@@ -68,7 +68,7 @@
         </ul>
       </li>
       @else
-        <a href="{{route('login')}}" class="d-block" style="margin-top: 7px;"><i class="fas fa-user-lock"></i>Đăng nhập</a>
+        <a href="{{route('sendotp')}}" class="d-block" style="margin-top: 7px;"><i class="fas fa-user-lock"></i>Đăng nhập</a>
       @endauth
     </ul>
   </nav>
