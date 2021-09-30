@@ -96,6 +96,7 @@ class LoginController extends Controller
                     if($user) {
                         Auth::login($user);
                         $user->update(['otp' => null]);
+                        Session::flash('success_message', 'Đăng nhập thành công!');
                         return redirect()->intended('/');
                     } else {
                         return back()->withErrors([
@@ -127,8 +128,10 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             $request->session()->regenerate();
             if (auth()->user()->type == 'Admin') {
+                Session::flash('success_message', 'Đăng nhập thành công!');
                 return redirect()->route('admin.policies');
             }else{
+                Session::flash('success_message', 'Đăng nhập thành công!');
                 return redirect()->intended('/');
             }
         }
@@ -145,7 +148,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
+        Session::flash('success_message', 'Đăng xuất thành công!');
         return redirect('/');
     }
 }
