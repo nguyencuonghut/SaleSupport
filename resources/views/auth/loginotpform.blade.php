@@ -45,8 +45,9 @@
           <!-- /.col -->
           <!-- /.col -->
           <div class="col-5">
-            <button type="submit" class="btn btn-secondary btn-block">Quay lại </button>
+            <a href="{{route('sendotp')}}" class="btn btn-secondary btn-block" role="button" aria-pressed="true">Quay lại</a>
           </div>
+
           <!-- /.col -->
         </div>
       </form>
