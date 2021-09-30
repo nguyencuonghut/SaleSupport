@@ -43,8 +43,8 @@ Route::get('/sendotp', [LoginController::class, 'showOtpForm'])->name('sendotp')
 Route::post('/sendotp', [LoginController::class, 'sendOtp'])->name('sendotp');
 Route::get('/loginotp', [LoginController::class, 'showloginOtpForm'])->name('showloginotpform');
 Route::post('/loginotp', [LoginController::class, 'loginOtp'])->name('loginotp');
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+//Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+//Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
 Route::get('/cart', UserCartComponent::class)->name('user.cart');
