@@ -145,6 +145,7 @@
                     <td>Tổng trọng lượng</td>
                     <td>{{number_format($total_weight , 0, '.', ',')}} kg</td>
                   </tr>
+                  <!--
                   <tr>
                     <td>Tiền hàng</td>
                     <td>{{number_format($subtotal , 0, '.', ',')}} đ</td>
@@ -153,6 +154,7 @@
                     <td>Giảm trừ</td>
                     <td>{{number_format($subtotal_discount , 0, '.', ',')}} đ</td>
                   </tr>
+                  -->
                   <tr>
                     <td style="color: blue;">Tiền nộp</td>
                     <td style="color: blue;">{{number_format($subtotal - $subtotal_discount, 0, '.', ',')}} đ</td>

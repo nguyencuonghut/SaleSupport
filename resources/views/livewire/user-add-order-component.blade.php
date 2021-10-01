@@ -93,8 +93,8 @@
                         <i class="fa fa-sort" style="color:#cccccc"></i>
                         @endif
                       </th>
-                      <th>Giá nhà máy</th>
                       <!--
+                      <th>Giá nhà máy</th>
                       <th>Trừ trực tiếp</th>
                       <th>Giá kho</th>
                       <th>Giá kho HT</th>
@@ -107,8 +107,8 @@
                         <tr>
                             <td>{{$item->code}}</td>
                             <td>{{$item->weight}}</td>
-                            <td>{{number_format($item->last_price->company_price, 0, '.', ',') }}</td>
                             <!--
+                            <td>{{number_format($item->last_price->company_price, 0, '.', ',') }}</td>
                             <td>{{number_format($item->last_price->discount, 0, '.', ',') }}</td>
                             <td>{{number_format($item->last_price->warehouse_price, 0, '.', ',') }}</td>
                             <td>{{number_format($item->last_price->ht_warehouse_price, 0, '.', ',') }}</td>
