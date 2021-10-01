@@ -146,6 +146,12 @@
                  </a>
                </li>
                <li class="nav-item">
+                <a href="{{ route('user.policy.warning') }}" class="nav-link {{ Request::is('policy/warning') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sắp hết hạn</p>
+                </a>
+              </li>
+               <li class="nav-item">
                  <a href="{{ route('user.policy.calendar') }}" class="nav-link {{ Request::is('policy/calendar') ? 'active' : '' }}">
                    <i class="far fa-circle nav-icon"></i>
                    <p>Dòng thời gian</p>

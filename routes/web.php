@@ -27,6 +27,7 @@ use App\Http\Livewire\UserPolicyByMonthComponent;
 use App\Http\Livewire\UserCartComponent;
 use App\Http\Livewire\UserPolicyComponent;
 use App\Http\Livewire\UserPolicyDetailComponent;
+use App\Http\Livewire\UserPolicyWarningComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/policy/month', UserPolicyByMonthComponent::class)->name('user.policy.month');
     Route::get('/policy/calendar', UserPolicyComponent::class)->name('user.policy.calendar');
     Route::get('/policy/show/{policy_id}', UserPolicyDetailComponent::class)->name('user.show.policy');
+    Route::get('/policy/warning', UserPolicyWarningComponent::class)->name('user.policy.warning');
 });
 
 //Admin route
