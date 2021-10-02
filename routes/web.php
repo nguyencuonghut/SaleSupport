@@ -48,11 +48,11 @@ Route::post('/loginotp', [LoginController::class, 'loginOtp'])->name('loginotp')
 //Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
-Route::get('/cart', UserCartComponent::class)->name('user.cart');
 Route::get('/home', HomeComponent::class)->name('home');
 
 //Employee route
 Route::group(['middleware' => 'auth'], function (){
+    Route::get('/cart', UserCartComponent::class)->name('user.cart');
     Route::get('/policy/month', UserPolicyByMonthComponent::class)->name('user.policy.month');
     Route::get('/policy/calendar', UserPolicyComponent::class)->name('user.policy.calendar');
     Route::get('/policy/show/{policy_id}', UserPolicyDetailComponent::class)->name('user.show.policy');
