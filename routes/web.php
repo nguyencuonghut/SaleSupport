@@ -48,7 +48,7 @@ Route::post('/loginotp', [LoginController::class, 'loginOtp'])->name('loginotp')
 //Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', UserAddOrderComponent::class)->name('user.add.order');
-Route::get('/home', HomeComponent::class)->name('home');
+//Route::get('/home', HomeComponent::class)->name('home');
 
 //Employee route
 Route::group(['middleware' => 'auth'], function (){
