@@ -36,23 +36,28 @@ class LoginController extends Controller
         }else{
             $user = User::where('phone', $request->phone)->first();
             if($user) {
-                /*Send OTP */
-                include(app_path() . '/Libraries/SpeedSMSAPI.php');
-                $sms = new SpeedSMSAPI("aqlhe-H54xFmnYJVpRu5CNnbz4WUUJ29");
-                $to = $request->phone;
-                $otp = random_int(100000, 999999);
-                $user->update(['otp' => $otp]);
-                //Store OTP to log
-                Log::info('OTP: '.$otp);
-                $smsContent = 'Honghafeed - mã xác thực của bạn là: '. $otp;
-                //Send OTP to phone
-                //$return = $sms->sendSMS([$to], $$smsContent, SpeedSMSAPI::SMS_TYPE_BRANDNAME, "SPEEDSMS");
+                /* Check for recent send OTP */
+                if (Session::has('phone') && Carbon::now()->diffInSeconds(Session::get('timeout')) < 30) {
+                    return back()->withErrors(['phone' => 'Mã OTP vừa mới gửi. Hãy thử lại sau 30s.']);
+                } else {
+                    /*Send OTP */
+                    include(app_path() . '/Libraries/SpeedSMSAPI.php');
+                    $sms = new SpeedSMSAPI("aqlhe-H54xFmnYJVpRu5CNnbz4WUUJ29");
+                    $to = $request->phone;
+                    $otp = random_int(100000, 999999);
+                    $user->update(['otp' => $otp]);
+                    //Store OTP to log
+                    Log::info('OTP: '.$otp);
+                    $smsContent = 'Honghafeed - mã xác thực của bạn là: '. $otp;
+                    //Send OTP to phone
+                    //$return = $sms->sendSMS([$to], $$smsContent, SpeedSMSAPI::SMS_TYPE_BRANDNAME, "SPEEDSMS");
 
-                //Store OTP and Time to session
-                Session::put('phone', $to);
-                Session::put('timeout', Carbon::now());
-                //Redirect to next page for logging with OTP
-                return redirect()->route('showloginotpform');
+                    //Store OTP and Time to session
+                    Session::put('phone', $to);
+                    Session::put('timeout', Carbon::now());
+                    //Redirect to next page for logging with OTP
+                    return redirect()->route('showloginotpform');
+                }
             } else {
                 return back()->withErrors(['phone' => 'Số điện thoại chưa được đăng ký']);
             }
