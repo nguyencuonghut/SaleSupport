@@ -48,7 +48,7 @@ class LoginController extends Controller
                     $user->update(['otp' => $otp]);
                     //Store OTP to log
                     Log::info('OTP: '.$otp);
-                    $smsContent = 'Honghafeed - mã xác thực của bạn là: '. $otp;
+                    $smsContent = 'HONGHAFEED - mã xác thực của bạn là: '. $otp;
                     //Send OTP to phone
                     return $sms->sendSMS([$to], $smsContent, SpeedSMSAPI::SMS_TYPE_BRANDNAME, "SPEEDSMS");
 
