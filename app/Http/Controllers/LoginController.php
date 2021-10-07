@@ -50,7 +50,7 @@ class LoginController extends Controller
                     Log::info('OTP: '.$otp);
                     $smsContent = 'Honghafeed - mã xác thực của bạn là: '. $otp;
                     //Send OTP to phone
-                    //$return = $sms->sendSMS([$to], $$smsContent, SpeedSMSAPI::SMS_TYPE_BRANDNAME, "SPEEDSMS");
+                    $sms->sendSMS([$to], $smsContent, SpeedSMSAPI::SMS_TYPE_BRANDNAME, "SPEEDSMS");
 
                     //Store OTP and Time to session
                     Session::put('phone', $to);
